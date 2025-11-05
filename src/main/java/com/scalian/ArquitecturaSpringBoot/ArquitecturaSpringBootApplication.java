@@ -22,9 +22,17 @@ public class ArquitecturaSpringBootApplication {
             repositorio.save(new Persona(null,"Álvaro", 30));
             repositorio.save(new Persona(null, "Lucía", 25));
 
-            lrepositorio.save(new Libro(null,"El nombre del viento", "Benito", 500));
-            lrepositorio.save(new Libro(null, "Juego de Tronnos","Martin", 25));
-            lrepositorio.save(new Libro(null, "Usted esta aquí","Fabián", 200));
+            lrepositorio.save(new Libro(null, "El nombre del viento", "Patrick Rothfuss", 662));
+            lrepositorio.save(new Libro(null, "La sombra del viento", "Carlos Ruiz Zafón", 565));
+            lrepositorio.save(new Libro(null, "Cien años de soledad", "Gabriel García Márquez", 471));
+            lrepositorio.save(new Libro(null, "El Señor de los Anillos", "J.R.R. Tolkien", 1216));
+            lrepositorio.save(new Libro(null, "1984", "George Orwell", 328));
+            lrepositorio.save(new Libro(null, "Don Quijote de la Mancha", "Miguel de Cervantes", 863));
+            lrepositorio.save(new Libro(null, "Crónica de una muerte anunciada", "Gabriel García Márquez", 120));
+            lrepositorio.save(new Libro(null, "Rayuela", "Julio Cortázar", 600));
+            lrepositorio.save(new Libro(null, "Fahrenheit 451", "Ray Bradbury", 249));
+            lrepositorio.save(new Libro(null, "La metamorfosis", "Franz Kafka", 120));
+
 
 
         };

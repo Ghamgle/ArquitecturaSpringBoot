@@ -15,20 +15,34 @@ import java.util.stream.Collectors;
 public class LibroService {
     private final LibroRepository libroRepository;
 
+    private LibroDTO MapLibroToLibroDTO(Libro libro){
+        LibroDTO libroDTO = new LibroDTO();
+        libroDTO.setTitulo(libro.getTitulo());
+        libroDTO.setAutor(libro.getAutor());
+        libroDTO.setPaginas(libro.getPaginas());
+        return libroDTO;
+    }
+
     public List<LibroDTO> obtenerTodos(){
         return libroRepository.findAll().stream()
-                .map( l -> {
-                    LibroDTO libroDTO = new LibroDTO();
-                    libroDTO.setTitulo(l.getTitulo());
-                    libroDTO.setAutor(l.getAutor());
-                    libroDTO.setPaginas(l.getPaginas());
-                    return libroDTO;
-                })
+                .map( this::MapLibroToLibroDTO)
                 .collect(Collectors.toList());
     }
 
     public Libro crearLibro(LibroDTO libroDTO){
         Libro libro = new Libro(null, libroDTO.getTitulo(), libroDTO.getAutor(), libroDTO.getPaginas());
         return libroRepository.save(libro);
+    }
+
+    public List<LibroDTO> buscarPorAutor (String autor){
+        return libroRepository.findByAutorContainingIgnoreCase(autor).stream()
+                .map(this::MapLibroToLibroDTO)
+                .collect(Collectors.toList());
+    }
+
+    public List<LibroDTO> buscarNumPaginas (int paginas){
+        return libroRepository.buscarlibrosdemaspaginas(paginas).stream()
+                .map(this::MapLibroToLibroDTO)
+                .collect(Collectors.toList());
     }
 }

@@ -23,4 +23,16 @@ public class LibroController {
         return libroService.crearLibro(libroDTO);
 
     }
+
+    @GetMapping("/buscar/autor/{autor}")
+    public List<LibroDTO> buscarPorAutor(@PathVariable String autor){
+        return libroService.buscarPorAutor(autor);
+    }
+
+    @GetMapping("/buscar/paginas/{paginas}")
+    public List<LibroDTO> buscarNumPaginas(@PathVariable int paginas){
+        return libroService.buscarNumPaginas(paginas);
+    }
+
+
 }
